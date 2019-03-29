@@ -58,26 +58,38 @@ class YKMineHomePageState extends State {
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
 
-      child: Container(
-        color: Color(0xffededed),
-        child: ListView.separated(
-            padding: EdgeInsets.all(0),//不设置状态栏会是灰色
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return YKMineHomeUserInfoCell(userInfo: userInfo);
-              }
-              return YKDisCoverHomeCell(homeModel: dataSources[index-1],);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              if(index == 0 || index == 1 || index == 5) {
-                return YKDisCoverHomeSeparatorCell();
-              }
-              return Divider(
-                height: 0,
-              );
-            },
-            itemCount: dataSources.length + 1
-        ),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            color: Color(0xffededed),
+            child: ListView.separated(
+                padding: EdgeInsets.all(0),//不设置状态栏会是灰色
+                itemBuilder: (BuildContext context, int index) {
+                  if (index == 0) {
+                    return YKMineHomeUserInfoCell(userInfo: userInfo);
+                  }
+                  return YKDisCoverHomeCell(homeModel: dataSources[index-1],);
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  if(index == 0 || index == 1 || index == 5) {
+                    return YKDisCoverHomeSeparatorCell();
+                  }
+                  return Divider(
+                    height: 0,
+                  );
+                },
+                itemCount: dataSources.length + 1
+            ),
+          ),
+          Positioned(
+              child: CupertinoButton(
+                  child: Image.asset('nav_icon_mine_camera.png'),
+                  onPressed: () {
+
+                  }
+              ),
+          ),
+        ],
       ),
     );
   }

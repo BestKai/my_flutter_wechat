@@ -32,7 +32,7 @@ class YKChatDetailPage extends StatelessWidget {
             }),
       ),
       child: Center(
-        child: YKChatHomePopMenu(),
+        child: Text('聊天详情'),
       ),
     );
   }

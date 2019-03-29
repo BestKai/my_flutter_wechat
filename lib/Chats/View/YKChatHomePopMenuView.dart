@@ -1,19 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'package:toast/toast.dart';
 
-class YKChatHomePopMenuPage extends StatelessWidget {
+class PopMenuRoute extends PopupRoute {
+  final Duration _duration = Duration(milliseconds: 300);
+  Widget child;
+
+  PopMenuRoute({@required this.child});
+
+  @override
+  Color get barrierColor => null;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  String get barrierLabel => null;
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+    return child;
+  }
+
+  @override
+  Duration get transitionDuration => _duration;
+}
+
+
+class PopupMenuPage extends StatelessWidget {
+  final Function onClick; //点击child事件
+  final double left; //距离左边位置
+  final double top; //距离上面位置
+
+  PopupMenuPage({
+    this.onClick,
+    this.left,
+    this.top,
+  });
+
+  Widget _popMenu = YKChatHomePopMenu();
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-
-    return CupertinoPageScaffold(
-      backgroundColor: Color.fromARGB(100, 0, 0, 0),
-      child: Container(
-        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width-160-8,top: MediaQuery.of(context).padding.top+44),
-        child: YKChatHomePopMenu(),
-      ),
-    );
+    return Material(
+      color: Colors.transparent, child: GestureDetector(child: Stack(
+      children: <Widget>[
+        Container(width: MediaQuery
+            .of(context)
+            .size
+            .width, height: MediaQuery
+            .of(context)
+            .size
+            .height, color: Colors.transparent,),
+        Positioned(child: _popMenu,
+          left: left,
+          top: top,),
+      ],
+    ),
+      onTap: () { //点击空白处
+        Navigator.of(context).pop();
+      },
+    ),);
   }
 }
 
@@ -97,7 +145,8 @@ class _menuItem extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print('11111');
+      Toast.show(item['title'], context,gravity: Toast.CENTER);
+      Navigator.of(context).pop();
       },
     );
   }

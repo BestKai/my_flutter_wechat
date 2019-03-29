@@ -11,37 +11,18 @@ import 'YKChatDetailPage.dart';
 import 'View/YKChatHomePopMenuView.dart';
 
 class YKChatHomePage extends StatelessWidget {
-  @override
 
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
-    void showPopMenu() {
-      Navigator.of(context,).push(CupertinoPageRoute(
-        fullscreenDialog: true,
-          builder: (context){
-        return YKChatHomePopMenuPage();
-      }));
-    }
-
-    return CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: Text('微信'),
-          trailing: GestureDetector(
-            child: Icon(CupertinoIcons.add_circled),
-            onTap: () {
-              showPopMenu();
-            },
-          ),
-        ),
-      backgroundColor: Color(0xffededed),
-      child: ChatListPage(),
-    );
+    return YKChatHomeStatePage();
   }
+
 }
 
 
-class ChatListPage extends StatefulWidget {
+class YKChatHomeStatePage extends StatefulWidget {
+
   @override
   createState() => new ChatListState();
 }
@@ -55,10 +36,12 @@ Future<String> getLocalFile() async {
 class ChatListState extends State {
 
   List<YKChatModel> chatListDatas = [];
+  bool showPopMenu = false;
 
   @override
   void initState() {
 //    Future<String> jsonStr = getLocalFile();
+    showPopMenu = true;
     Future<String> jsonStr = DefaultAssetBundle.of(context).loadString("content/chatInfo.json");
     jsonStr.then((String value){
       // 通知框架此对象的内部状态已更改
@@ -73,7 +56,27 @@ class ChatListState extends State {
 
   Widget build(BuildContext context) {
     // TODO: implement build
-    return _chatList();
+
+   return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('微信'),
+        trailing: GestureDetector(
+          child: Icon(CupertinoIcons.add_circled),
+          onTap: () {
+          Navigator.push(context, PopMenuRoute(child: PopupMenuPage(
+            left: MediaQuery.of(context).size.width-160-12,
+            top: MediaQuery.of(context).padding.top+44,
+          )));
+          },
+        ),
+      ),
+      backgroundColor: Color(0xffededed),
+      child:Stack(
+        children: <Widget>[
+          _chatList(),
+        ],
+      ),
+    );
   }
 
   Widget _chatList() {
