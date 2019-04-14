@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:toast/toast.dart';
 
 import 'View/YKContactCell.dart';
 import 'Model/YKUserInfo.dart';
+
+import 'YKUserInfoPage.dart';
 
 class YKContactsHomePage extends StatelessWidget {
 
@@ -34,6 +37,12 @@ class YKContactsHomePage extends StatelessWidget {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('通讯录'),
+        trailing: GestureDetector(
+          child: Image.asset('images/nav_icon_contact_addfriend.png'),
+          onTap: () {
+            Toast.show('敬请期待', context,gravity: Toast.CENTER);
+          },
+        ),
       ),
       backgroundColor: Color(0xffededed),
       child: ListView.builder(
@@ -44,11 +53,15 @@ class YKContactsHomePage extends StatelessWidget {
             if(user.actionTag.isEmpty) {
               return YKContactSectionHeader(userInfo: user,);
             }
-
             return YKContactCell(
                 userInfo:user,
                 onTap: () {
                     print('you tapped at index $index');
+                    if(index>4){
+                      Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context){
+                        return YKUserInfoPage();
+                      }));
+                    }
                 },
             );
           },

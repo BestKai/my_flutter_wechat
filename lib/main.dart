@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:my_flutter_wechat/Chats/YKChatHomePage.dart';
 import 'package:my_flutter_wechat/Contacts/YKContactsHomePage.dart';
 import 'package:my_flutter_wechat/Discover/YKDiscoverHomePage.dart';
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return CupertinoApp(
+      //解决在CupertinoApp 中无法使用Material组件问题
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        DefaultMaterialLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
       title: '微信Demo',
       home: MyPage(),
     );

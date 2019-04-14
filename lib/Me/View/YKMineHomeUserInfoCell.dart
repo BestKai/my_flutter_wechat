@@ -18,11 +18,11 @@ class YKMineHomeUserInfoCell extends StatelessWidget {
     double statusBarHeight = MediaQuery.of(context).padding.top;
 
     var avatar = Container(
-      child: FadeInImage.assetNetwork(
+      child:(userInfo.avatar is String)?FadeInImage.assetNetwork(
         placeholder: 'images/defaultHead.png',
         image: userInfo.avatar,
         fit: BoxFit.cover,
-      ),
+      ):Image.file(userInfo.avatar),
       width: 64,
       height: 64,
       decoration: BoxDecoration(

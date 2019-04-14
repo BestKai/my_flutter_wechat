@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 import '../Contacts/Model/YKUserInfo.dart';
 import '../Discover/Model/YKDiscoverHomeModel.dart';
@@ -24,19 +26,19 @@ class YKMineHomePageStateful extends StatefulWidget {
 }
 
 
-
 class YKMineHomePageState extends State {
 
   YKUserInfo userInfo;
   final dataSources = [];
 
+  File _image;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     userInfo = YKUserInfo(
-        avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553173065&di=a8dc27a67d0f825b79879be41aa833a2&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201803%2F28%2F20180328083913_hrkpt.thumb.700_0.jpg',
+        avatar:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553173065&di=a8dc27a67d0f825b79879be41aa833a2&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201803%2F28%2F20180328083913_hrkpt.thumb.700_0.jpg',
         nickName: 'Best--Kai',
         wxName: 'Best--Kai'
     );
@@ -50,6 +52,16 @@ class YKMineHomePageState extends State {
     dataSources.add(YKDiscoverHomeModel(icon: 'images/mine_icon_cards.png',title: '卡包'));
     dataSources.add(YKDiscoverHomeModel(icon: 'images/mine_icon_sticker.png',title: '表情'));
     dataSources.add(YKDiscoverHomeModel(icon: 'images/mine_icon_setting.png',title: '设置'));
+  }
+
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+      userInfo.avatar = _image;
+    });
   }
 
   @override
@@ -82,10 +94,14 @@ class YKMineHomePageState extends State {
             ),
           ),
           Positioned(
+            top: MediaQuery.of(context).padding.top,
+            right: 0,
+            width: 52,
               child: CupertinoButton(
-                  child: Image.asset('nav_icon_mine_camera.png'),
+                  child: Image.asset('images/nav_icon_mine_camera.png'),
                   onPressed: () {
-
+                    print('打开相机');
+                    getImage();
                   }
               ),
           ),

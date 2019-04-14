@@ -19,16 +19,14 @@ class YKContactCell extends StatelessWidget {
 
     var avatar = Container(
       margin: EdgeInsets.only(left: 16),
-      child: userInfo.avatar.startsWith('http')?FadeInImage.assetNetwork(
-        placeholder: 'images/defaultHead.png',
-        image: userInfo.avatar,
-        fit: BoxFit.cover,
-      ):Image.asset(userInfo.avatar),
       width: 40,
       height: 40,
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius:BorderRadius.all(Radius.circular(4)),
+          image: DecorationImage(
+            image: userInfo.avatar.startsWith('http')?NetworkImage(userInfo.avatar):AssetImage(userInfo.avatar),
+          ),
        )
     );
 

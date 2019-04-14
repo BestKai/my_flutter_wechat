@@ -22,6 +22,10 @@ dependencies:
 
   path_provider: ^0.5.0+1
   toast: ^0.1.3
+  image_picker: ^0.5.0+9
+  pull_to_refresh_notification: ^0.2.0
+  url_launcher: ^5.0.2
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -54,12 +58,18 @@ flutter:
 
     - images/defaultHead.png
     - images/nav_icon_back.png
+    - images/nav_icon_back_white.png
     - images/nav_icon_more.png
 
     - images/nav_icon_menu_addfriend.png
     - images/nav_icon_menu_chat.png
     - images/nav_icon_menu_pay.png
     - images/nav_icon_menu_scan.png
+
+    - images/userinfo_icon_videoCall.png
+    - images/userinfo_icon_chats.png
+    - images/voip_actionSheet_voice.png
+    - images/voip_actionSheet_video.png
 
 
     - images/add_friend_icon_FriendNotify.png
@@ -74,6 +84,15 @@ flutter:
     - images/moment_icon_search.png
     - images/moment_icon_nearby.png
     - images/moment_icon_wxapp.png
+    - images/moment_icon_op.png
+    - images/moment_icon_comment_white.png
+    - images/moment_icon_like_white.png
+
+    - images/chat_icon_toolbar_addmore.png
+    - images/chat_icon_toolbar_keyboard.png
+    - images/chat_icon_toolbar_sticker.png
+    - images/chat_icon_toolbar_voice.png
+    - images/chat_detail_addGroupMember.png
 
     - images/tableview_arrow.png
     - images/mine_icon_homeQR.png
@@ -86,8 +105,14 @@ flutter:
     - images/mine_icon_setting.png
 
     - images/nav_icon_mine_camera.png
+    - images/nav_icon_contact_addfriend.png
+    - images/nav_icon_moment_black_camera.png
+    - images/nav_icon_moment_white_camera.png
 
     - content/chatInfo.json
+    - images/moment_header_bg.jpg
+    - images/searchBar_icon.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -7,7 +7,7 @@ import 'dart:convert';
 
 import 'View/YKChatCell.dart';
 import 'Model/YKChatModel.dart';
-import 'YKChatDetailPage.dart';
+import 'YKMessagePage.dart';
 import 'View/YKChatHomePopMenuView.dart';
 
 class YKChatHomePage extends StatelessWidget {
@@ -81,14 +81,18 @@ class ChatListState extends State {
 
   Widget _chatList() {
     return ListView.builder(
-        itemCount: chatListDatas.length,
+        itemCount: chatListDatas.length + 1,
         itemBuilder: (BuildContext context, int index) {
-          return YKChatCell(
-              chatModel: chatListDatas[index],
+          if(index>0){
+            return YKChatCell(
+              chatModel: chatListDatas[index-1],
               onTap: () {
-                goToChatDetail(chatListDatas[index]);
+                goToChatDetail(chatListDatas[index-1]);
               },
-          );
+            );
+          }else{
+            return YKChatSearchCell();
+          }
         }
     );
   }
@@ -98,7 +102,7 @@ class ChatListState extends State {
 
     //方法1 tabbar 可以根据rootNavigator 设置是否隐藏
     Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context) {
-      return YKChatDetailPage(chatModel:chatModel);
+      return YKMessagePage(chatModel:chatModel);
     }));
 
     //方法2 tabbar 不会隐藏
@@ -108,4 +112,16 @@ class ChatListState extends State {
 //        }));
   }
 
+}
+
+
+
+class YKChatSearchCell extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      child: Text('11111'),
+    );
+  }
 }

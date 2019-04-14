@@ -2,8 +2,7 @@ class YKUserInfo {
 
   String actionTag;
 
-
-  String avatar;
+  dynamic avatar;
   String nickName;
   String wxName;
 

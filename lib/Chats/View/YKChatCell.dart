@@ -21,14 +21,12 @@ class YKChatCell extends StatelessWidget {
       width: 48,
       height: 48,
       margin: EdgeInsets.only(left: 16,top: 12),
-      child: FadeInImage.assetNetwork(
-          placeholder: 'images/defaultHead.png',
-          image: chatModel.avatar,
-          fit: BoxFit.cover,
-      ),
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius:BorderRadius.all(Radius.circular(4)),
+        image: DecorationImage(
+          image: NetworkImage(chatModel.avatar),
+        ),
         border: Border.all(
           color: Color(0xffdddddd),
           width: 1,

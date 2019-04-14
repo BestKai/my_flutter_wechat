@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'View/YKDiscoverHomeCell.dart';
 import 'Model/YKDiscoverHomeModel.dart';
+import 'YKMomentPage.dart';
 
 class YKDiscoverHomePage extends StatelessWidget {
 
@@ -48,10 +49,20 @@ class YKDiscoverHomePage extends StatelessWidget {
               homeModel: homeModel,
               onTap: () {
                 print('you tapped at title ${homeModel.title}');
+
+                if(index==0) {
+                  goToMomentPage(context);
+                }
               },
             );
           }
       ),
     );
   }
+}
+
+void goToMomentPage (BuildContext context) {
+  Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context) {
+    return YKMomentPage();
+  }));
 }
