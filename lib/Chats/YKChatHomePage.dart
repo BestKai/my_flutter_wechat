@@ -10,6 +10,9 @@ import 'Model/YKChatModel.dart';
 import 'YKMessagePage.dart';
 import 'View/YKChatHomePopMenuView.dart';
 
+import '../Common/YKHomeSearchBar.dart';
+import '../Chats/YKSearchHistoryPage.dart';
+
 class YKChatHomePage extends StatelessWidget {
 
   @override
@@ -17,7 +20,6 @@ class YKChatHomePage extends StatelessWidget {
     // TODO: implement build
     return YKChatHomeStatePage();
   }
-
 }
 
 
@@ -91,7 +93,11 @@ class ChatListState extends State {
               },
             );
           }else{
-            return YKChatSearchCell();
+            return YKHomeSearchBar(onTap: () {
+              Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context){
+                return YKSearchHistoryPage(fromeHome: true,);
+              }));
+            },);
           }
         }
     );
@@ -112,16 +118,4 @@ class ChatListState extends State {
 //        }));
   }
 
-}
-
-
-
-class YKChatSearchCell extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-      child: Text('11111'),
-    );
-  }
 }

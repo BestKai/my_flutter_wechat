@@ -28,7 +28,7 @@ class ChatToolBarState extends State<YKChatToolBar>  with TickerProviderStateMix
     _inputTextController = TextEditingController();
 
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 300), vsync: this);
+        duration: const Duration(milliseconds: 3000), vsync: this);
     animation = Tween(begin: 0.0, end: 240.0).animate(CurvedAnimation(parent: animationController, curve: Curves.easeIn));
 
     animation.addStatusListener((status) {

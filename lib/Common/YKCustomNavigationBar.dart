@@ -5,9 +5,11 @@ import 'dart:math';
 
 class YKCustomNavigationBar extends StatefulWidget {
 
-  YKCustomNavigationBar({this.offset});
+  YKCustomNavigationBar({this.offset,this.rightOnTap,this.rightLongTap});
 
   final double offset;
+  final GestureTapCallback rightOnTap;
+  final GestureLongPressCallback rightLongTap;
 
   @override
   State<StatefulWidget> createState() {
@@ -48,15 +50,15 @@ class YKCustomMomentNavigationState extends State<YKCustomNavigationBar> {
             Center(
               child: Text('朋友圈',style: TextStyle(color: alaphOffset >navHeight ?Colors.transparent:Colors.black,),),
             ),
-            Container(
-              margin: EdgeInsets.only(right: 16),
-              width: 44,
-              child: CupertinoButton(
-                  padding: EdgeInsets.only(left: 14,right: 0),
-                  child: Image.asset(alaphOffset >navHeight ? 'images/nav_icon_moment_white_camera.png':'images/nav_icon_moment_black_camera.png'),
-                  onPressed: (){
-
-                  }),
+            GestureDetector(
+              child: Container(
+                margin: EdgeInsets.only(right: 4),
+                width: 44,
+                padding: EdgeInsets.only(left: 12,right: 12),
+                child: Image.asset(alaphOffset >navHeight ? 'images/nav_icon_moment_white_camera.png':'images/nav_icon_moment_black_camera.png'),
+              ),
+              onTap: this.widget.rightOnTap,
+              onLongPress: this.widget.rightLongTap,
             )
           ],
         ),

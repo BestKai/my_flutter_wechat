@@ -23,7 +23,7 @@ class YKContactCell extends StatelessWidget {
       height: 40,
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            borderRadius:BorderRadius.all(Radius.circular(4)),
+            borderRadius:BorderRadius.all(Radius.circular(5)),
           image: DecorationImage(
             image: userInfo.avatar.startsWith('http')?NetworkImage(userInfo.avatar):AssetImage(userInfo.avatar),
           ),

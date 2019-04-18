@@ -9,6 +9,7 @@ import '../Common/YKCustomNavigationBar.dart';
 import 'View/YKMomentHeaderView.dart';
 import 'View/YKMomentCell.dart';
 import 'View/YKMomentOprerationView.dart';
+import 'YKPublishMomentPage.dart';
 
 class YKMomentPage extends StatelessWidget {
   @override
@@ -100,10 +101,78 @@ class YKMomentState extends State<YKMomentFulPage> {
                 },
               itemCount: moments.length+1,
             ),
-            YKCustomNavigationBar(offset: _navOffset,),
+            YKCustomNavigationBar(
+              offset: _navOffset,
+              rightLongTap: () {
+                goToPublishMomentPage();
+              },
+              rightOnTap: () {
+              _showSelectActionSheet(context: context,
+                  child: CupertinoActionSheet(
+                    actions: <Widget>[
+                      CupertinoActionSheetAction(
+                        onPressed: () {
+                          Navigator.pop(context,);
+                          _getImage(true);
+                        },
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              Text('拍摄',style: TextStyle(color: Colors.black,fontSize: 18)),
+                              Container(
+                                margin: EdgeInsets.only(top: 4),
+                                child: Text('照片或视频',style: TextStyle(color: Color(0xff919191),fontSize: 14)),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      CupertinoActionSheetAction(
+                        onPressed: () {
+                          Navigator.pop(context,);
+                          _getImage(false);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 6),
+                          child: Text('从手机相册选择',style: TextStyle(color: Colors.black,fontSize: 18),),
+                        ),
+                      ),
+                    ],
+                    cancelButton: CupertinoActionSheetAction(
+                      child: Text('取消',style: TextStyle(color: Colors.black,fontSize: 18)),
+                      isDefaultAction: true,
+                      onPressed: () {
+                        Navigator.pop(context,);
+                      },
+                    ),
+                  )
+              );
+             },
+            ),
             YKMomentOperationView(top: opOffset.dy,right: opOffset.dx,isVisible: showOperationView,)
           ],
         )
     );
+  }
+
+  void _showSelectActionSheet({BuildContext context, Widget child}) {
+    showCupertinoModalPopup<String>(
+      context: context,
+      builder: (BuildContext context) => child,
+    );
+  }
+
+  Future _getImage(bool isCamera) async {
+    var image = await ImagePicker.pickImage(source: isCamera?ImageSource.camera:ImageSource.gallery);
+    setState(() {
+      _image = image;
+      goToPublishMomentPage();
+    });
+  }
+
+  void goToPublishMomentPage() {
+    Navigator.of(context).push(CupertinoPageRoute(builder: (context){
+      return YKPublishMomentPage(firstImage: _image,);
+    },fullscreenDialog: true));
   }
 }

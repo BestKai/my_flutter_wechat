@@ -13,7 +13,7 @@ class YKChatDetailPage extends StatelessWidget {
 
     void goToSearchHistoryPage() {
       Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context) {
-        return YKSearchHistoryPage();
+        return YKSearchHistoryPage(fromeHome: false,);
       }));
     }
 

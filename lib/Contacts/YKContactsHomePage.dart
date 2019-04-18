@@ -5,6 +5,8 @@ import 'View/YKContactCell.dart';
 import 'Model/YKUserInfo.dart';
 
 import 'YKUserInfoPage.dart';
+import '../Common/YKHomeSearchBar.dart';
+import '../Chats/YKSearchHistoryPage.dart';
 
 class YKContactsHomePage extends StatelessWidget {
 
@@ -48,7 +50,15 @@ class YKContactsHomePage extends StatelessWidget {
       child: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
 
-            YKUserInfo user = dataSources[index];
+            if(index==0){
+              return YKHomeSearchBar(onTap: () {
+                Navigator.of(context,rootNavigator: true).push(CupertinoPageRoute(builder: (context){
+                  return YKSearchHistoryPage(fromeHome: true,);
+                }));
+              },);
+            }
+
+            YKUserInfo user = dataSources[index-1];
 
             if(user.actionTag.isEmpty) {
               return YKContactSectionHeader(userInfo: user,);
@@ -65,7 +75,7 @@ class YKContactsHomePage extends StatelessWidget {
                 },
             );
           },
-        itemCount: dataSources.length,
+        itemCount: dataSources.length+1,
       ),
     );
   }

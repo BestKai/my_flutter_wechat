@@ -95,7 +95,7 @@ class YKSettingUserInfoPage extends StatelessWidget {
                   children: <Widget>[
                     Positioned(
                       left: 16,
-                      bottom: 2,
+                      bottom: 4,
                       child: Text('朋友圈和视频动态',style: TextStyle(color: Color(0xff7f7f7f),fontSize: 13),),
                     ),
                   ],

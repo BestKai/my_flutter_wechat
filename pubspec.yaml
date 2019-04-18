@@ -88,6 +88,14 @@ flutter:
     - images/moment_icon_comment_white.png
     - images/moment_icon_like_white.png
 
+    - images/moment_icon_at.png
+    - images/moment_icon_me.png
+    - images/moment_icon_location.png
+    - images/moment_icon_QQSpaceBig.png
+    - images/moment_icon_QQSpaceBigHL.png
+    - images/moment_icon_album_add.png
+
+
     - images/chat_icon_toolbar_addmore.png
     - images/chat_icon_toolbar_keyboard.png
     - images/chat_icon_toolbar_sticker.png
