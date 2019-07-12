@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "FLTImagePickerImageUtil.h"
+#import "FLTImagePickerMetaDataUtil.h"
+#import "FLTImagePickerPhotoAssetUtil.h"
 #import "ImagePickerPlugin.h"
 
 FOUNDATION_EXPORT double image_pickerVersionNumber;

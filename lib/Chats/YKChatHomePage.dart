@@ -63,7 +63,7 @@ class ChatListState extends State {
       navigationBar: CupertinoNavigationBar(
         middle: Text('微信'),
         trailing: GestureDetector(
-          child: Icon(CupertinoIcons.add_circled),
+          child: Image.asset('images/nav_icon_add.png'),
           onTap: () {
           Navigator.push(context, PopMenuRoute(child: PopupMenuPage(
             left: MediaQuery.of(context).size.width-160-12,

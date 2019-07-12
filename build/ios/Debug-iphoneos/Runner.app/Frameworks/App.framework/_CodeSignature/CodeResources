@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/LICENSE</key>
 		<data>
-		FNfc/gEt+6NOpRcUIfux8KJrmxc=
+		mbuLEoj7RkPBMDfs63gfKJrZCmg=
 		</data>
 		<key>flutter_assets/content/chatInfo.json</key>
 		<data>
@@ -718,11 +718,11 @@
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		gBSOq7hXyIYlNR2gzpusf7dA+yk=
+		1kZTJEmnB5tLOvK76MC+YOkrUHE=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		PlgPpOJX7zAbdVwVyDgmhP4sICM=
+		wQX+GLObqdfSRe99i0WliusP6w0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -730,7 +730,7 @@
 		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
-		KvL4yNFboMFxn6oAvhGQc2VfrGM=
+		Dna2BxcG22HN2x7XHM+DJIIqXcM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -761,11 +761,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FNfc/gEt+6NOpRcUIfux8KJrmxc=
+			mbuLEoj7RkPBMDfs63gfKJrZCmg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ycu7wuppoonaGe71Fg56J2e9BPc4KF0ixG85qI1i2dc=
+			xWyCVS4jhsdXW7beSPWWkJv+jpUEUZ2Xr65GHEMhg8k=
 			</data>
 		</dict>
 		<key>flutter_assets/content/chatInfo.json</key>
@@ -2686,22 +2686,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gBSOq7hXyIYlNR2gzpusf7dA+yk=
+			1kZTJEmnB5tLOvK76MC+YOkrUHE=
 			</data>
 			<key>hash2</key>
 			<data>
-			YkTsXaBaKbPh4mU+t7AzDBQnT4XBRU/pnOgecuRrW64=
+			CJhflXpti398hm8yS/gDK1n5KVzSnOtnxxF9E/Hd80E=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PlgPpOJX7zAbdVwVyDgmhP4sICM=
+			wQX+GLObqdfSRe99i0WliusP6w0=
 			</data>
 			<key>hash2</key>
 			<data>
-			RmX9iDrR7LMUoDRfrp3wzdyHYXpVuqIQ9zzdE7err1A=
+			O11/u6bJJmIPSJuAuOo9LsGuAcJeZhjutF+N6InhGnI=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -2719,11 +2719,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KvL4yNFboMFxn6oAvhGQc2VfrGM=
+			Dna2BxcG22HN2x7XHM+DJIIqXcM=
 			</data>
 			<key>hash2</key>
 			<data>
-			po8oL2VxC6vqAuzXZ3CQyzSU+ADO/Hki6/7UIKu+xRA=
+			wI3Xcb7E9SgBNZDNDgFiAuCXAJ9CgxxPHlb33vmxSSU=
 			</data>
 		</dict>
 	</dict>
